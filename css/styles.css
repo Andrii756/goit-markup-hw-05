@@ -129,12 +129,15 @@ body {
 .contact:focus .icon-tel {
   fill: var(--focus-color);
 }
+.contact-line {
+  display: flex;
+  margin-left: auto;
+}
 .icon-email {
   display: block;
   width: 16px;
   height: 12px;
   margin-right: 10px;
-  margin-left: 305px;
   fill: var(--secondary-color);
 }
 .icon-tel {
@@ -203,43 +206,6 @@ body {
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
   border-radius: 4px;
 }
-/* Modal */
-.backdrop {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.2);
-}
-.backdrop.is-hidden {
-  opacity: 0;
-  pointer-events: none;
-}
-.modal {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-
-  transform: translate(-50%, -50%);
-  width: 528px;
-  height: 581px;
-
-  background: #ffffff;
-  box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 1px 1px rgba(0, 0, 0, 0.14),
-    0px 2px 1px rgba(0, 0, 0, 0.2);
-  border-radius: 4px;
-}
-.btn-modal {
-  position: absolute;
-  top: 10;
-  right: 10;
-  width: 18px;
-  height: 18px;
-  border-radius: 50%;
-}
-.btm-modal-icon {
-}
 /*peculiarities*/
 .feature {
   padding-bottom: 0px;
@@ -256,9 +222,15 @@ body {
 .icon-sector {
   background-color: #f5f4fa;
   margin-bottom: 30px;
+
+  min-width: 270px;
+  min-height: 120px;
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
 }
 .icon {
-  margin: 25px 100px;
   width: 70px;
   height: 70px;
 }
@@ -508,36 +480,43 @@ body {
   width: 170px;
   height: 92px;
 }
-
-.company-item {
-  display: flex;
-  content: "";
-  align-items: center;
-  justify-content: center;
+.company-sector {
+  width: 170px;
+  height: 92px;
   margin-right: 30px;
+}
+.company-item {
+  min-width: 170px;
+  min-height: 92px;
+  margin-right: 30px;
+  flex-basis: calc((100% - 92px) / 6);
 }
 .company-item:last-child {
   margin-right: 0px;
 }
 .company-list-link {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  fill: #afb1b8;
+  border: 1px solid #afb1b8;
   border-radius: 4px;
-  padding: 16px 32px;
+  min-width: 170px;
+  min-height: 92px;
 }
 .company-icon {
   fill: #afb1b8;
-  width: 170px;
-  height: 92px;
-  border: 1px solid #afb1b8;
-  box-sizing: border-box;
-  border-radius: 4px;
-
-  padding-left: 30px;
-  padding-top: 20px;
+  width: 106px;
+  height: 60px;
 }
-.company-icon:focus,
-.company-icon:hover {
+.company-list-link:focus,
+.company-list-link:hover {
+  border: 2px solid var(--focus-color);
+  border-radius: 4px;
+}
+.company-list-link:focus .company-icon,
+.company-list-link:hover .company-icon {
   fill: var(--focus-color);
-  border: 1px solid var(--focus-color);
 }
 /*footer*/
 footer {
