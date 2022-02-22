@@ -73,6 +73,9 @@ body {
   color: #ffffff;
 }
 /*site nab */
+.site-nav .current {
+  color: var(--focus-color);
+}
 .site-nav {
   display: flex;
   margin-left: 93px;
@@ -201,8 +204,8 @@ body {
 }
 .servis-button:hover,
 .servis-button:focus {
-  background: #f5f4fa;
-  color: #000000;
+  background: #188ce8;
+  color: #ffffff;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
   border-radius: 4px;
 }
@@ -326,6 +329,7 @@ body {
 .images-sector {
   position: relative;
 }
+
 .images-sector-text {
   position: absolute;
   bottom: 0;
@@ -497,7 +501,6 @@ body {
   flex-wrap: wrap;
 }
 .project-element {
-  position: relative;
   width: 370px;
   margin-right: 30px;
   margin-bottom: 30px;
@@ -519,21 +522,54 @@ body {
   margin-bottom: 0px;
 }
 /* Overlay */
+/* 250ms,cubic-bezier(0.4, 0, 0.2, 1). */
 .overlay {
+  position: relative;
+}
+.overlay::before {
+  position: absolute;
+  content: "";
+  display: inline-block;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(33, 150, 243, 0.9);
+  opacity: 0;
+  transition-property: opacity, background-color;
+  transition-duration: 250ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+.overlay-content {
   position: absolute;
   top: 0;
   left: 0;
+
   width: 100%;
   height: 100%;
-  opacity: 0;
-}
-.overlay-text {
-}
-.project-element:focus .overlay,
-.project-element:hover .overlay {
-  opacity: 1;
 
-  background-color: rgba(33, 150, 243, 0.9);
+  font-family: var(--primary-font-family);
+  font-style: normal;
+  font-weight: normal;
+  font-size: 16px;
+  line-height: 1.88;
+  letter-spacing: 0.03em;
+
+  color: #ffffff;
+
+  padding-top: 63px;
+  padding-left: 24px;
+
+  opacity: 0;
+  transition-property: opacity;
+  transition-duration: 250ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+.overlay:focus .overlay-content,
+.overlay:hover .overlay-content {
+  opacity: 1;
+}
+.ooverlay:focus::before,
+.overlay:hover::before {
+  opacity: 1;
 }
 .project-groop {
   padding-top: 20px;
