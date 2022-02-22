@@ -54,6 +54,14 @@ body {
   display: flex;
   align-items: center;
 }
+/* .link-pr::after {
+  content: "";
+  display: block;
+  width: 100%;
+  height: 3px;
+  border-radius: 2px;
+  background-color: blueviolet; */
+
 .logo {
   font-family: var(--secondary-font-family);
   font-style: normal;
@@ -73,11 +81,21 @@ body {
   color: #ffffff;
 }
 /*site nab */
-.site-nav .current {
-  color: var(--focus-color);
+.site-nav .current::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+
+  display: block;
+  width: 100%;
+  height: 4px;
+  border-radius: 2px;
+  background-color: #2196f3;
 }
 .site-nav {
   display: flex;
+
   margin-left: 93px;
 }
 .site-nav .item:not(:last-child) {
@@ -91,7 +109,7 @@ body {
   font-size: 14px;
   line-height: 1.14;
   letter-spacing: 0.02em;
-
+  position: relative;
   text-decoration: none;
 }
 .site-nav a:hover,
@@ -217,17 +235,23 @@ body {
   width: 100%;
   height: 100%;
   background-color: rgba(0, 0, 0, 0.2);
+
+  opacity: 1;
+  transition: opasity 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 .backdrop.is-hidden {
   opacity: 0;
   pointer-events: none;
+}
+.backdrop.is-hidden.modal {
+  transform: scale(0.7);
 }
 .modal {
   position: absolute;
   top: 50%;
   left: 50%;
 
-  transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%) scale(1);
   width: 528px;
   height: 581px;
 
@@ -235,6 +259,8 @@ body {
   box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 1px 1px rgba(0, 0, 0, 0.14),
     0px 2px 1px rgba(0, 0, 0, 0.2);
   border-radius: 4px;
+
+  transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 .btn-modal {
   position: absolute;
@@ -522,9 +548,10 @@ body {
   margin-bottom: 0px;
 }
 /* Overlay */
-/* 250ms,cubic-bezier(0.4, 0, 0.2, 1). */
+
 .overlay {
   position: relative;
+  overflow: hidden;
 }
 .overlay::before {
   position: absolute;
@@ -533,8 +560,10 @@ body {
   width: 100%;
   height: 100%;
   background-color: rgba(33, 150, 243, 0.9);
-  opacity: 0;
-  transition-property: opacity, background-color;
+
+  transform: translateY(+300px);
+
+  transition-property: transform;
   transition-duration: 250ms;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
@@ -558,18 +587,19 @@ body {
   padding-top: 63px;
   padding-left: 24px;
 
-  opacity: 0;
-  transition-property: opacity;
+  transform: translateY(+300px);
+
+  transition-property: transform, background-color;
   transition-duration: 250ms;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 .overlay:focus .overlay-content,
 .overlay:hover .overlay-content {
-  opacity: 1;
+  transform: translateY(0);
 }
 .ooverlay:focus::before,
 .overlay:hover::before {
-  opacity: 1;
+  transform: translateY(0);
 }
 .project-groop {
   padding-top: 20px;
