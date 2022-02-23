@@ -111,6 +111,8 @@ body {
   letter-spacing: 0.02em;
   position: relative;
   text-decoration: none;
+
+  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 .site-nav a:hover,
 .site-nav a:focus {
@@ -134,6 +136,8 @@ body {
   letter-spacing: 0.02em;
 
   color: var(--secondary-color);
+
+  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 .contact.item:not(:last-child) {
   margin-right: 30px;
@@ -219,6 +223,7 @@ body {
   margin-top: 30px;
   padding: 10px 32px;
   min-width: 200px;
+  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 .servis-button:hover,
 .servis-button:focus {
@@ -237,21 +242,24 @@ body {
   background-color: rgba(0, 0, 0, 0.2);
 
   opacity: 1;
-  transition: opasity 250ms cubic-bezier(0.4, 0, 0.2, 1);
+
+  transition: opacity 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 .backdrop.is-hidden {
   opacity: 0;
   pointer-events: none;
+  transition: opacity 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 .backdrop.is-hidden.modal {
-  transform: scale(0.7);
+  transform: scale(0.1);
+  transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 .modal {
   position: absolute;
   top: 50%;
   left: 50%;
 
-  transform: translate(-50%, -50%) scale(1);
+  transform: scale(1) translate(-50%, -50%);
   width: 528px;
   height: 581px;
 
@@ -457,6 +465,7 @@ body {
   height: 44px;
   background-color: var(--background-color);
   border-radius: 50%;
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 .social-list-icon {
   width: 20px;
@@ -465,6 +474,7 @@ body {
   justify-content: space-around;
   align-items: center;
   fill: #afb1b8;
+  transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .social-list-link:hover,
@@ -504,6 +514,9 @@ body {
 
   padding: 6px 22px;
   border-radius: 4px;
+
+  transition: box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 .portfolio-button:hover,
 .portfolio-button:focus {
@@ -534,6 +547,7 @@ body {
   background: #ffffff;
   border: 1px solid #eeeeee;
   box-sizing: border-box;
+  transition: box-sizing 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 .project-element:focus,
 .project-element:hover {
@@ -563,9 +577,7 @@ body {
 
   transform: translateY(+300px);
 
-  transition-property: transform;
-  transition-duration: 250ms;
-  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 .overlay-content {
   position: absolute;
@@ -589,15 +601,13 @@ body {
 
   transform: translateY(+300px);
 
-  transition-property: transform, background-color;
-  transition-duration: 250ms;
-  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 .overlay:focus .overlay-content,
 .overlay:hover .overlay-content {
   transform: translateY(0);
 }
-.ooverlay:focus::before,
+.overlay:focus::before,
 .overlay:hover::before {
   transform: translateY(0);
 }
@@ -658,15 +668,18 @@ body {
   border-radius: 4px;
   min-width: 170px;
   min-height: 92px;
+  transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    border 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 .company-icon {
   fill: #afb1b8;
   width: 106px;
   height: 60px;
+  transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 .company-list-link:focus,
 .company-list-link:hover {
-  border: 2px solid var(--focus-color);
+  border: 1px solid var(--focus-color);
   border-radius: 4px;
 }
 .company-list-link:focus .company-icon,
@@ -713,6 +726,7 @@ footer {
 
   display: flex;
 
+  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
   margin-bottom: 9px;
 }
 .address-contact:focus,
@@ -756,6 +770,7 @@ footer {
   height: 44px;
   background-color: rgb(255, 255, 255, 10%);
   border-radius: 50%;
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 .footer-social-list-icon {
   width: 20px;
